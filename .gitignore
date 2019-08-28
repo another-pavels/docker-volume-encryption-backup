@@ -1,0 +1,4 @@
+/encrypt_files/keys/
+/encrypt_files/decrypt
+/encrypt_files/encrypt
+docker_volume_backup/backups
