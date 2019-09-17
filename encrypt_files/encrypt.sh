@@ -55,7 +55,7 @@ openssl rand -base64 128 > ${KEY_FILE_NAME}
 openssl rsautl -encrypt -inkey  ${PUB_KEY_FILE_PATH} -pubin -in ${KEY_FILE_NAME} -out ${ENCRYPTED_KEY_FILE_NAME}
 
 # Encrypt source file
-openssl enc -aes-256-cbc -salt -in ${SOURCE_FILE_PATH} -out ${ENCRYPTED_FILE_PATH} -pass file:./${KEY_FILE_NAME}
+openssl enc -e -md sha256 -aes256 -salt -in ${SOURCE_FILE_PATH} -out ${ENCRYPTED_FILE_PATH} -pass file:./${KEY_FILE_NAME}
 
 rm -rf ${KEY_FILE_NAME}
 

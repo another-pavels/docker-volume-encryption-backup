@@ -43,7 +43,7 @@ fi
 openssl rsautl -decrypt -inkey ${PRIVATE_KEY_FILE_PATH} -in ${ENCRYPTED_KEY_FILE_PATH} -out ${TARGET_FOLDER}/${KEY_FILE_NAME}
 
 # decrypt file
-openssl enc -d -aes-256-cbc -in ${ENCRYPTED_FILE_PATH} -out ${TARGET_FOLDER}/${OUTPUT_FILE_NAME} -pass file:./${TARGET_FOLDER}/${KEY_FILE_NAME}
+openssl enc -d -md sha256 -aes256 -in ${ENCRYPTED_FILE_PATH} -out ${TARGET_FOLDER}/${OUTPUT_FILE_NAME} -pass file:./${TARGET_FOLDER}/${KEY_FILE_NAME}
 
 # delete ecrypted file key
 rm ${TARGET_FOLDER}/${KEY_FILE_NAME}
